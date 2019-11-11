@@ -37,6 +37,10 @@ def login_post():
     else:
         flash('Špatně!')
     return render_template('login.html')
+@app.route('/logout', methods=["POST","GET"])
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
 
 
 @app.route('/ond/')
